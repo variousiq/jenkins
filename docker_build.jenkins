@@ -27,5 +27,14 @@ pipeline {
                                 	sh 'docker build . -t variousiq/aplinka:latest'
                             }
         }
+        
+        stage("push docker image") {
+            steps {
+                echo " ============== start pushing image =================="
+                sh '''
+                docker push variousiq/aplinka:latest
+                '''
+                            }
+        }
     }
 }
